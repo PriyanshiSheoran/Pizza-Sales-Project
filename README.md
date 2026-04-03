@@ -1,26 +1,43 @@
-🍕 Pizza Sales SQL Analysis
-📌 Overview
+#🍕 Pizza Store Sales SQL Project
+##📌 Description
 
-This project focuses on analyzing pizza sales data using SQL to generate meaningful business insights. It helps understand revenue trends, customer behavior, and product performance.
+This project analyzes pizza store sales data using SQL to generate valuable insights on revenue, customer demand, and product performance. It demonstrates the use of SQL queries to transform raw data into meaningful business information.
 
-🎯 Objectives
-Calculate total revenue and orders
-Identify top and least selling pizzas
-Analyze sales by category and size
-Find peak order times and trends
-🗂️ Dataset
-
-The dataset includes:
-order_id, pizza_name, pizza_category, pizza_size, quantity, order_date, order_time, total_price
-
-🛠️ Tools Used
-SQL (MySQL / PostgreSQL)
-📊 Key Analysis
+##🔑 Key Highlights
 Revenue and order analysis
-Best & worst performing pizzas
-Sales distribution by category and size
-Hourly and daily sales trends
-📈 Key Insights
-Evening hours generate maximum orders
-Large pizzas contribute most to revenue
-Few top pizzas drive majority of sales
+Top & least selling pizzas
+Sales trends by time (hour/day)
+Category & size-wise performance
+Real-world business insights using SQL
+##🗄️ Database Used
+MySQL / PostgreSQL
+##🛠️ Tech Stack
+SQL
+DBMS (MySQL / PostgreSQL)
+##📂 Key Tables
+orders – stores order date & time
+order_details – quantity and order info
+pizzas – pizza size and price
+pizza_types – pizza name & category
+##🔗 Concepts Used
+JOINS (INNER JOIN)
+GROUP BY
+AGGREGATE FUNCTIONS (SUM, COUNT)
+ORDER BY
+LIMIT
+##⬇️ How to Use / Download
+Download or clone this repository
+Import the dataset into your SQL database
+Run the queries from the SQL file
+Analyze results
+📊 Example Query
+
+Top 5 Best-Selling Pizzas
+
+SELECT pt.name, SUM(od.quantity) AS total_sold
+FROM order_details od
+JOIN pizzas p ON od.pizza_id = p.pizza_id
+JOIN pizza_types pt ON p.pizza_type_id = pt.pizza_type_id
+GROUP BY pt.name
+ORDER BY total_sold DESC
+LIMIT 5;
